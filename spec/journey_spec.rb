@@ -2,11 +2,11 @@ require 'journey'
 
 describe Journey do
 
-  it 'can set an entry station' do
-    journey = Journey.new
-    journey.set_entry("Moorgate")
-    expect(journey.entry_station).to eq("Moorgate")
-  end
+  # it 'can set an entry station' do
+  #   journey = Journey.new
+  #   journey.set_entry("Moorgate")
+  #   expect(journey.entry_station).to eq("Moorgate")
+  # end
 
   it 'can set an exit station' do
     journey = Journey.new
@@ -26,16 +26,12 @@ describe Journey do
     expect(journey.in_journey?).to be false
   end
 
-  it 'can record full history of a single journey' do
+  it 'can return full history of a single journey' do
     journey = Journey.new
     journey.set_entry("Moorgate")
     journey.set_exit("Barbican")
-    journey.save_journey
-    expect(journey.history).to eq([{tap_in_station: "Moorgate", tap_out_station: "Barbican"}])
-  end
-
-  it 'has an empty list of journeys by default' do
-    expect(subject.history).to eq([])
+    
+    expect(journey.return_journey).to eq({entry_station: "Moorgate", exit_station: "Barbican"})
   end
 
   it 'can reset journey' do

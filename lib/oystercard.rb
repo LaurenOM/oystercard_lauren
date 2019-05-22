@@ -22,7 +22,7 @@ class Oystercard
   def touch_out(fare=MINIMUM_FARE, station)
     deduct(fare)
     @journey.set_exit(station)
-    @journey.save_journey
+    @journey.return_journey
     @journey.reset
   end
 
