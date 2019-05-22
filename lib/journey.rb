@@ -1,7 +1,8 @@
 class Journey
 
   attr_reader :entry_station, :exit_station, :history
-
+  MINIMUM = 1
+  PENALTY = 6
   def initialize
     @history = []
   end
@@ -29,6 +30,14 @@ class Journey
   def reset
     @entry_station = nil
     @exit_station = nil
+  end
+
+  def fare 
+    if @entry_station == nil || @exit_station == nil
+      PENALTY
+    else 
+      MINIMUM
+    end
   end
 
 end

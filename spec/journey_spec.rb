@@ -46,4 +46,10 @@ describe Journey do
     expect(journey.in_journey?).to be(false)
   end
 
+  it 'can return a penalty fare' do 
+    journey = Journey.new 
+    journey.set_exit("Moorgate")
+    expect(journey.fare).to eq(6)
+  end
+
 end
